@@ -19,23 +19,31 @@ keymap.set("n", "<Leader>D", '"_D')
 keymap.set("v", "<Leader>d", '"_d')
 keymap.set("v", "<Leader>D", '"_D')
 keymap.set("x", "<leader>p", [["_dP]])
-keymap.set("n", "<C-d>", "<C-d>zz")
-keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz",{desc = "Scroll Down"})
+keymap.set("n", "<C-u>", "<C-u>zz",{desc = "Scroll Up"})
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 keymap.set("n", "n", "nzzzv")
 keymap.set("n", "N", "Nzzzv")
-keymap.set("n", "<leader>R", ":RunCode<CR>i")
-keymap.set("n", "<leader>T", ":UndotreeToggle<CR>i")
+keymap.set("n", "<leader>R", ":RunCode<CR>i",{desc = "Run Code"})
+-- Twilight
+keymap.set("n", "tw", ":Twilight<CR>",{desc = "Toggle Twilight"})
+-- UndoTree
+keymap.set("n", "<leader>T", ":UndotreeToggle<CR>i",{desc = "Toggle UndoTree"})
 -- Increment/decrement
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
-
 -- Delete a word backwards
 keymap.set("n", "dw", 'vb"_d')
-
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
+-- End of line and Begin of line
+keymap.set("n", "E", "$")
+keymap.set("n", "B", "^")
+-- Files
+keymap.set("n", "QQ", ":q!<CR>",{desc = "Quit Force"})
+keymap.set("n", "WW", ":w!<CR>",{desc = "Quit Write"})
+keymap.set("n", "<leader>qq", ":q<CR>",{desc = "Quit"})
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
@@ -72,7 +80,7 @@ end, opts)
 
 keymap.set("n", "<leader>r", function()
 	require("craftzdog.hsl").replaceHexWithHSL()
-end)
+end,{desc="Replace hex with hsl"})
 
 keymap.set("n", "<leader>i", function()
 	require("craftzdog.lsp").toggleInlayHints()

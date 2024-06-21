@@ -130,6 +130,7 @@ return {
 				height = 1, -- height of the Zen window
 			},
 			plugins = {
+        twilight = false,
 				gitsigns = true,
 				tmux = true,
 				kitty = { enabled = false, font = "+2" },
