@@ -125,6 +125,10 @@ return {
 		"folke/zen-mode.nvim",
 		cmd = "ZenMode",
 		opts = {
+			window = {
+				width = 0.85, -- width of the Zen window
+				height = 1, -- height of the Zen window
+			},
 			plugins = {
 				gitsigns = true,
 				tmux = true,
