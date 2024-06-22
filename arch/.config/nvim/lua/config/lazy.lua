@@ -25,7 +25,7 @@ require("lazy").setup({
 				},
 			},
 		},
-{ 'echasnovski/mini.surround', version = false },
+		{ "echasnovski/mini.surround", version = false },
 		-- import any extras modules here
 		{ import = "lazyvim.plugins.extras.linting.eslint" },
 		{ import = "lazyvim.plugins.extras.formatting.prettier" },
