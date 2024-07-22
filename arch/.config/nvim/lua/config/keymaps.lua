@@ -5,6 +5,14 @@ discipline.cowboy()
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
+-- Brainly Template
+
+function InsertGivenAnswerSolution()
+	local text = "A n s w e r\n\nG i v e n\n\nS o l u t i o n\n"
+	local lines = vim.split(text, "\n", true)
+	vim.api.nvim_buf_set_lines(0, vim.fn.line(".") - 1, vim.fn.line("."), false, lines)
+end
+
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
 keymap.set("n", "<Leader>p", '"0p')
@@ -73,7 +81,9 @@ keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 -- For brainly
-keymap.set("n", "<leader>bsolution", ":normal! iS o l u t i o n<CR>", opts)
+keymap.set("n", "<leader>bgiven", function()
+	InsertGivenAnswerSolution()
+end, opts)
 keymap.set("n", "<leader>bqq", ":normal! i⚊⚊⚊⚊ ⓵<CR>", opts)
 keymap.set("n", "<leader>bww", ":normal! i⚊⚊⚊⚊ ⓶<CR>", opts)
 keymap.set("n", "<leader>bee", ":normal! i⚊⚊⚊⚊ ⓷<CR>", opts)
@@ -88,14 +98,14 @@ keymap.set("n", "<leader>bkl", ":normal! i⟯ <CR>", opts)
 keymap.set("n", "<leader>bbr", ":normal! i\\bigg\\lgroup <CR>", opts)
 keymap.set("n", "<leader>bbra", ":normal! i\\bigg\\rgroup <CR>", opts)
 keymap.set("n", "<leader>btextt", ":normal! i[tex] \\sf  [/tex]<CR>", opts)
-keymap.set("n", "<leader>bsp", ":normal! i\\;<CR>", opts)
-keymap.set("n", "<leader>bgiven", ":normal! iG i v e n<CR>", opts)
-keymap.set("n", "<leader>bth", ":normal! i∴<CR>", opts)
-keymap.set("n", "<leader>banswer", ":normal! iA n s w e r<CR>", opts)
+keymap.set("n", "<leader>btex", ":normal! i[tex] <CR>", opts)
+keymap.set("n", "<leader>bsf", ":normal! i\\sf <CR>", opts)
+keymap.set("n", "<leader>btext", ":normal! i[/tex] <CR>", opts)
+keymap.set("n", "<leader>bsp", ":normal! i \\; <CR>", opts)
+keymap.set("n", "<leader>bth", ":normal! i∴ <CR>", opts)
 keymap.set("n", "<leader>bpi", ":normal! i\\pi<CR>", opts)
 keymap.set("n", "<leader>bcode", ":normal! i[tex]\\underline{ \\underline{\\bold{\\texttt{ :}}}} [/tex]<CR>", opts)
 keymap.set("n", "<leader>bfrac", ":normal! i[tex] \\sf \\dfrac { n }{ d } [/tex]<CR>", opts)
-keymap.set("n", "<leader>bfind", ":normal! iF i n d<CR>", opts)
 keymap.set("n", "<leader>bsq", ":normal! i\\sqrt{} <CR>", opts)
 keymap.set("n", "<leader>bgap", ":normal! i                     ㅤ<CR>", opts)
 
