@@ -4,7 +4,7 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" }) -- jk for exiting insert mode
 
-keymap.set("n", "<ESC>", ":nohl<CR>", { desc = "Clear search highlights" }) -- clear search highlights
+keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
 -- Setting up registers
 keymap.set("n", "<Leader>p", '"0p')
 keymap.set("n", "<Leader>P", '"0P')
@@ -23,8 +23,9 @@ keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
 keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 keymap.set("v", "K", ":m '<-2<CR>gv=gv")
-keymap.set("n", "n", "nzzzv")
+keymap.set("n", "n", "nzzzv") -- keeps search terms in the middle
 keymap.set("n", "N", "Nzzzv")
+keymap.set("n", "J", "mzJ`z") -- takes line below cursor line and append to the cursor line with a space
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment

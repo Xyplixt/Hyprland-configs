@@ -1,6 +1,9 @@
 vim.cmd("let g:netrw_liststyle = 3") -- Make nvim default file explorer as tree
 vim.g.lazygit_config = true
 local opt = vim.opt -- For concise commands
+local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
+opt.undodir = { prefix .. "/nvim2/.undo//" } -- Defining folder for undotree to work properly
+opt.incsearch = true
 opt.relativenumber = true -- Turn on relativenumber
 opt.tabstop = 2 -- 2 spaces for tabs (prettier default)
 opt.shiftwidth = 2 -- 2 spaces for indent width
