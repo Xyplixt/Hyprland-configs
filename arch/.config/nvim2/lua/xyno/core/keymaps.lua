@@ -1,30 +1,25 @@
 vim.g.mapleader = " " -- Spacebar as leader key
+vim.g.maplocalleader = " "
 local opts = { noremap = true, silent = true }
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" }) -- jk for exiting insert mode
 
-keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" }) -- clear highlight
 -- Setting up registers
-keymap.set("n", "<Leader>p", '"0p')
-keymap.set("n", "<Leader>P", '"0P')
-keymap.set("v", "<Leader>p", '"0p')
-keymap.set("n", "<Leader>c", '"_c')
-keymap.set("n", "<Leader>C", '"_C')
-keymap.set("v", "<Leader>c", '"_c')
-keymap.set("v", "<Leader>C", '"_C')
-keymap.set("n", "<Leader>d", '"_d')
-keymap.set("n", "<Leader>D", '"_D')
-keymap.set("v", "<Leader>d", '"_d')
-keymap.set("v", "<Leader>D", '"_D')
+keymap.set("v", "<Leader>p", '"0p', { desc = "Paste without loosing clipboard" })
+keymap.set("v", "<Leader>c", '"_c', { desc = "Change without loosing clipboard" })
+keymap.set("v", "<Leader>C", '"_C', { desc = "Change line till end without loosing clipboard" })
+keymap.set("v", "<Leader>d", '"_d', { desc = "Delete without loosing clipboard" })
+keymap.set("v", "<Leader>D", '"_D', { desc = "Delete line till end without loosing clipboard" })
 keymap.set("n", "x", '"_x') -- different register for 'x'
-keymap.set("x", "<leader>p", [["_dP]])
-keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down" })
-keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up" })
-keymap.set("v", "J", ":m '>+1<CR>gv=gv")
-keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste in visual line/block mode without loosing clipboard" })
+keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down with cursor in middle" })
+keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up with cursor in middle" })
+keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line(s) down" })
+keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line(s) up" })
 keymap.set("n", "n", "nzzzv") -- keeps search terms in the middle
-keymap.set("n", "N", "Nzzzv")
+keymap.set("n", "N", "Nzzzv") -- keeps search terms in the middle
 keymap.set("n", "J", "mzJ`z") -- takes line below cursor line and append to the cursor line with a space
 
 -- increment/decrement numbers
@@ -58,8 +53,6 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
---keywordprg
-keymap.set("n", "<leader>K", "<cmd>norm! K<cr>", { desc = "Keywordprg" })
 
 -- better indenting
 keymap.set("v", "<", "<gv")

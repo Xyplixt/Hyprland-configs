@@ -46,6 +46,7 @@ opt.pumblend = 10 -- Popup blend
 opt.pumheight = 10 -- Maximum number of entries in a popup
 opt.undofile = true
 opt.undolevels = 10000
+opt.updatetime = 50
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]]) -- Enable undercurl for terminals that support it
 vim.cmd([[let &t_Ce = "\e[4:0m"]]) -- Disable undercurl for terminals that support it
@@ -62,10 +63,10 @@ end
 
 if vim.fn.has("nvim-0.10") == 1 then
   opt.smoothscroll = true
-  opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
+  -- opt.foldexpr = "v:lua.require'lazyvim.util'.ui.foldexpr()"
   opt.foldmethod = "expr"
   opt.foldtext = ""
 else
   opt.foldmethod = "indent"
-  opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
+  -- opt.foldtext = "v:lua.require'lazyvim.util'.ui.foldtext()"
 end
