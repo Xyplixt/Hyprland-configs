@@ -26,6 +26,7 @@ return {
           { mode = "n", keys = "<Leader>B", desc = "+Buffers" },
           { mode = "n", keys = "<Leader>b", desc = "+Brainly" },
           { mode = "n", keys = "<Leader>r", desc = "+LSP/Smart-Rename" },
+          { mode = "n", keys = "<Leader>d", desc = "Diagnostics" },
           -- { mode = "n", keys = "<Leader>dl", postkeys = "<Leader>d" },
         }
       end

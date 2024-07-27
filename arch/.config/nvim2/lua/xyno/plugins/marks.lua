@@ -1,6 +1,5 @@
--- NOTE: Show Marks
 return {
   "chentoast/marks.nvim",
-  event = "User FilePost",
+  event = { "BufReadPre", "BufNewFile" },
   opts = {},
 }

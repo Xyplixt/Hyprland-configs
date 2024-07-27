@@ -9,7 +9,6 @@ return {
     { "<leader>fb", "<cmd>FzfLua buffers<CR>", mode = "n", desc = "Buffers" },
     { "<leader>f?", "<cmd>FzfLua builtin<CR>", mode = "n", desc = "Builtins" },
     { "<leader><leader>", "<cmd>FzfLua resume<CR>", mode = "n", desc = "Resume Finder" },
-    { "<leader>d", "<cmd>FzfLua diagnostics_document<CR>", mode = "n", desc = "Diagnostics" },
   },
   opts = function()
     local action = require("fzf-lua.actions")
