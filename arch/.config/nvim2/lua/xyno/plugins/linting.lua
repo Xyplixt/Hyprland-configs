@@ -1,3 +1,4 @@
+-- linting show errors and warnings in your code
 return {
   "mfussenegger/nvim-lint",
   event = { "BufReadPre", "BufNewFile" },
@@ -6,24 +7,26 @@ return {
 
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
-      typescript = { "eslint_d" },
-      javascriptreact = { "eslint_d" },
-      typescriptreact = { "eslint_d" },
-      svelte = { "eslint_d" },
+      -- typescript = { "eslint_d" },
+      -- javascriptreact = { "eslint_d" },
+      -- typescriptreact = { "eslint_d" },
+      -- svelte = { "eslint_d" },
       python = { "pylint" },
+      -- css = { "stylelint" },
+      -- html = { "htmlhint" },
       c = { "cpplint" },
     }
 
     local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })
 
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, { -- Linting will trigger on these events
       group = lint_augroup,
       callback = function()
         lint.try_lint()
       end,
     })
 
-    vim.keymap.set("n", "<leader>l", function()
+    vim.keymap.set("n", "<leader>cl", function()
       lint.try_lint()
     end, { desc = "Trigger linting for current file" })
   end,

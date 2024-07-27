@@ -41,8 +41,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
 keymap.set("n", "E", "$") -- Go to end of line
 keymap.set("n", "B", "^") -- Go to beginning of line
-keymap.set("n", "<Leader>o", "o<Esc>^Da", opts) -- create a new line below without continuing comments or indentation
-keymap.set("n", "<Leader>O", "O<Esc>^Da", opts) -- create a new line above without continuing comments or indentation
+keymap.set("n", "<Leader>o", "o<Esc>^Da", { desc = "Line without continuing" }) -- create a new line below without continuing comments or indentation
+keymap.set("n", "<Leader>O", "O<Esc>^Da", { desc = "Line without continuing" }) -- create a new line above without continuing comments or indentation
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")
@@ -52,7 +52,6 @@ keymap.set("n", "<C-w><down>", "<C-w>-")
 -- buffers
 keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
-keymap.set("n", "<leader>bD", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 
 -- better indenting
 keymap.set("v", "<", "<gv")

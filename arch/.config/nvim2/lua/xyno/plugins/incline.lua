@@ -1,6 +1,6 @@
 return { --* 🎈 Floating statuslines *--
   "b0o/incline.nvim",
-  event = "VeryLazy",
+  event = { "BufReadPre", "BufNewFile" },
   config = function()
     local devicons = require("nvim-web-devicons")
     require("incline").setup({

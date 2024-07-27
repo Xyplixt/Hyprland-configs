@@ -1,6 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufReadPre", "BufNewFile" }, -- Lazy load on these events 
+  event = { "BufReadPre", "BufNewFile" }, -- Lazy load on these events
   build = ":TSUpdate",
   dependencies = {
     "windwp/nvim-ts-autotag",
@@ -24,22 +24,22 @@ return {
       ensure_installed = {
         "json",
         "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
+        -- "typescript",
+        -- "tsx",
+        -- "yaml",
         "html",
         "css",
-        "prisma",
+        -- "prisma",
         "markdown",
         "markdown_inline",
-        "svelte",
-        "graphql",
+        -- "svelte",
+        -- "graphql",
         "bash",
         "lua",
         "vim",
-        "dockerfile",
+        -- "dockerfile",
         "gitignore",
-        "query",
+        -- "query",
         "vimdoc",
         "c",
         "python",

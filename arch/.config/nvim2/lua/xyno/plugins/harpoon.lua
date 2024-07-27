@@ -12,14 +12,15 @@ return {
   keys = function()
     local keys = {
       {
-        "<leader>H",
+        "<leader>hH",
         function()
           require("harpoon"):list():add()
+          vim.notify("   Marked file", vim.log.levels.INFO, { title = "Harpoon" })
         end,
         desc = "Harpoon File",
       },
       {
-        "<leader>h",
+        "<leader>hh",
         function()
           local harpoon = require("harpoon")
           harpoon.ui:toggle_quick_menu(harpoon:list())
@@ -28,7 +29,7 @@ return {
       },
 
       {
-        "<leader>sP",
+        "<leader>hp",
         function()
           require("harpoon"):list():prev()
         end,
@@ -36,7 +37,7 @@ return {
       },
 
       {
-        "<leader>sN",
+        "<leader>hn",
         function()
           require("harpoon"):list():next()
         end,
@@ -46,7 +47,7 @@ return {
 
     for i = 1, 5 do
       table.insert(keys, {
-        "<leader>" .. i,
+        "<leader>h" .. i,
         function()
           require("harpoon"):list():select(i)
         end,

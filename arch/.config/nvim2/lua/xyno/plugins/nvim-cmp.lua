@@ -14,6 +14,28 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "onsails/lspkind.nvim", -- vs-code like pictograms
+    -- -- autocompletion ----------------------------------------------------------
+    -- {
+    --   "Exafunction/codeium.nvim",
+    --   opts = {
+    --     enable_chat = true,
+    --   },
+    -- },
+    -- {
+    --   "supermaven-inc/supermaven-nvim",
+    --   -- commit = "df3ecf7",
+    --   event = "User FilePost",
+    --   opts = {
+    --     disable_keymaps = false,
+    --     disable_inline_completion = false,
+    --     keymaps = {
+    --       accept_suggestion = "<C-;>",
+    --       clear_suggestion = "<Nop>",
+    --       accept_word = "<C-y>",
+    --     },
+    --   },
+    -- },
+    -----------------------------------------------------------------------------
   },
   config = function()
     local cmp = require("cmp")
@@ -24,10 +46,13 @@ return {
 
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
-
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
+      },
+      window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -45,7 +70,7 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp"},
+        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
