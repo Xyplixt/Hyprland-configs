@@ -1,0 +1,66 @@
+return {
+  ------------------------------------------------------
+  {
+    "neovim/nvim-lspconfig",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      --function for changing icons on the left side of screen https://github.com/neovim/nvim-lspconfig/wiki/UI-Customization
+      local signs = { Error = "✘", Warn = "▲", Hint = "⚑", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, {
+          text = icon,
+          texthl = hl,
+          numhl = hl,
+        })
+      end
+
+      local lspconfig = require("lspconfig")
+      vim.diagnostic.config({
+        virtual_text = {
+          prefix = "󰻀",
+        },
+        underline = false,
+        update_in_insert = true,
+        severity_sort = true,
+      })
+      vim.keymap.set("n", "gR", "<cmd>FzfLua lsp_references<CR>", {}) -- show definition, references
+      vim.keymap.set("n", "gD", vim.lsp.buf.declaration, {}) -- go to declaration
+      vim.keymap.set("n", "gd", "<cmd>FzfLua lsp_definitions<CR>", {}) -- show lsp definitions
+      vim.keymap.set("n", "gi", "<cmd>FzfLua lsp_implementations<CR>", {}) -- show lsp implementations
+      vim.keymap.set("n", "gt", "<cmd>FzfLua lsp_typedefs<CR>", {}) -- show lsp type definitions
+      vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" }) -- see available code actions, in visual mode will apply to selection
+      vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Smart rename" }) -- smart rename
+      vim.keymap.set("n", "<leader>dl", vim.diagnostic.open_float, { desc = "Line Diagnostics" }) -- show diagnostics for line
+      vim.keymap.set("n", "<leader>df", "<cmd>FzfLua diagnostics_document<CR>", { desc = "File Diagnostics" })
+      -- { "<leader>d", "<cmd>FzfLua diagnostics_document<CR>", mode = "n", desc = "Diagnostics" },
+      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {}) -- jump to previous diagnostic in buffer
+      vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {}) -- jump to next diagnostic in buffer
+      vim.keymap.set("n", "K", vim.lsp.buf.hover, {}) -- show documentation for what is under cursor
+      vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", { desc = "Restart Lsp" }) -- mapping to restart lsp if necessary
+      lspconfig.marksman.setup({})
+      lspconfig.pyright.setup({})
+      lspconfig.lua_ls.setup({})
+      -- lspconfig.tsserver.setup({})
+      lspconfig.cssls.setup({})
+      lspconfig.eslint.setup({
+        single_file_support = true,
+        filetypes = { "javascript" },
+      })
+      lspconfig.clangd.setup({
+        filetypes = { "c", "h", "cpp" },
+        cmd = { "clangd", "--background-index", "--offset-encoding=utf-16" },
+        single_file_support = true,
+        root_dir = lspconfig.util.root_pattern(
+          ".clangd",
+          ".clang-tidy",
+          ".clang-format",
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac",
+          ".git"
+        ),
+      })
+    end,
+  },
+}

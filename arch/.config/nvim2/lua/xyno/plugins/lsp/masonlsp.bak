@@ -1,0 +1,10 @@
+return {
+  "williamboman/mason-lspconfig.nvim", -- To install lsp automatically
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    require("mason-lspconfig").setup({
+      ensure_installed = { "lua_ls", "clangd", "pyright", "tsserver", "cssls", "marksman", "eslint" },
+      automatic_installation = true, --automatically installs configured lsp servers
+    })
+  end,
+}

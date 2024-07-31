@@ -1,0 +1,14 @@
+return {
+  "craftzdog/solarized-osaka.nvim",
+  lazy = false,
+  priority = 1000, -- laods this extension before others
+  config = function()
+    require("solarized-osaka").setup({
+      styles = {
+        sidebars = "transparent", -- nvim tree and all
+        floats = "transparent", -- floating windows , like that of telescope
+      },
+    })
+    vim.cmd([[colorscheme solarized-osaka]])
+  end,
+}

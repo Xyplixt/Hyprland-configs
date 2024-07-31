@@ -1,4 +1,4 @@
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim" -- Installing lazy (written in it's document)
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -11,16 +11,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({
-  { import = "xyno.plugins" },
-  { import = "xyno.plugins.lsp" },
+require("lazy").setup({ -- loading lazy and setting it up
+  { import = "xyno.plugins" }, -- Adding plugins to lazy
+  { import = "xyno.plugins.lsp" }, -- Adding lsp folder to lazy
 }, {
   checker = {
-    enabled = true,
-    notify = false,
+    enabled = true, -- Check for updates
+    notify = false, -- Don't notify about updates
   },
   change_detection = {
-    notify = false,
+    notify = false, -- Don't notify about changes
   },
   ui = {
     size = { width = 0.6, height = 0.7 },

@@ -1,19 +1,17 @@
 vim.g.mapleader = " " -- Spacebar as leader key
-vim.g.maplocalleader = " "
-local opts = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true } -- for conciseness
 local keymap = vim.keymap -- for conciseness
-
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" }) -- jk for exiting insert mode
-
-keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" }) -- clear highlight
+keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Clear hlsearch" }) -- clear highlight
 -- Setting up registers
 keymap.set("v", "<Leader>p", '"0p', { desc = "Paste without loosing clipboard" })
 keymap.set("v", "<Leader>c", '"_c', { desc = "Change without loosing clipboard" })
-keymap.set("v", "<Leader>C", '"_C', { desc = "Change line till end without loosing clipboard" })
+keymap.set("n", "<Leader>C", '"_C', { desc = "Change line till end without loosing clipboard" })
 keymap.set("v", "<Leader>d", '"_d', { desc = "Delete without loosing clipboard" })
-keymap.set("v", "<Leader>D", '"_D', { desc = "Delete line till end without loosing clipboard" })
+keymap.set("n", "<Leader>D", '"_D', { desc = "Delete line till end without loosing clipboard" })
 keymap.set("n", "x", '"_x') -- different register for 'x'
 keymap.set("x", "<leader>p", [["_dP]], { desc = "Paste in visual line/block mode without loosing clipboard" })
+
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll Down with cursor in middle" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll Up with cursor in middle" })
 keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line(s) down" })
@@ -49,6 +47,7 @@ keymap.set("n", "<C-w><left>", "<C-w><")
 keymap.set("n", "<C-w><right>", "<C-w>>")
 keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
+
 -- buffers
 keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })

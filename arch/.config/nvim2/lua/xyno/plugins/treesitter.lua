@@ -3,7 +3,7 @@ return {
   event = { "BufReadPre", "BufNewFile" }, -- Lazy load on these events
   build = ":TSUpdate",
   dependencies = {
-    "windwp/nvim-ts-autotag",
+    "windwp/nvim-ts-autotag", -- Through help of treesitter autoclosing tag
   },
   config = function()
     -- import nvim-treesitter plugin
@@ -47,7 +47,7 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-space>",
+          init_selection = "<C-space>", -- TODO: Use this , basically selects the block and continues selecting on pressing
           node_incremental = "<C-space>",
           scope_incremental = false,
           node_decremental = "<bs>",

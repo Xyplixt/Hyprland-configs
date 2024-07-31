@@ -1,8 +1,9 @@
+-- If we want to do tweaking on formatting then we can create a custom formatting file ex : .cland-format
 return {
   "stevearc/conform.nvim",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
-    local conform = require("conform")
+    local conform = require("conform") -- loading conform
 
     conform.setup({
       formatters_by_ft = {
@@ -19,13 +20,13 @@ return {
         graphql = { "prettier" },
         liquid = { "prettier" },
         lua = { "stylua" },
-        python = { "isort", "black" },
+        python = { "isort", "black" }, -- isort for organizing imports
         c = { "clang-format" },
       },
       format_on_save = {
-        lsp_fallback = true,
-        async = false,
-        timeout_ms = 1000,
+        lsp_fallback = true, -- If formatter is not available for a file then format through lsp
+        async = false, -- async meaning not occur at predetermined intervals
+        timeout_ms = 1000, -- async is false thus timeout
       },
     })
 
