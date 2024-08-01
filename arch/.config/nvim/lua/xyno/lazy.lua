@@ -12,12 +12,17 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({ -- loading lazy and setting it up
+  defaults = { lazy = true },
   { import = "xyno.plugins" }, -- Adding plugins to lazy
   { import = "xyno.plugins.lsp" }, -- Adding lsp folder to lazy
 }, {
   checker = {
     enabled = true, -- Check for updates
     notify = false, -- Don't notify about updates
+  },
+  install = {
+    missing = true,
+    colorscheme = { "nvchad" },
   },
   change_detection = {
     notify = false, -- Don't notify about changes

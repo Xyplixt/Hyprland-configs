@@ -1,6 +1,6 @@
 return {
   "folke/tokyonight.nvim",
-  priority = 1000,  -- To make sure this plugin loads before any other 
+  priority = 1000, -- To make sure this plugin loads before any other
   config = function() -- Runs whenever the plugin loads
     local transparent = true -- set to true if you would like to enable transparency
 

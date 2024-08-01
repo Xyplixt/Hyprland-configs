@@ -2,3 +2,4 @@
 require("xyno.core.options")
 require("xyno.core.keymaps")
 require("xyno.core.autocmds")
+require("xyno.core.chadmaps")

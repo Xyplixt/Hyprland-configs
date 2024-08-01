@@ -51,3 +51,11 @@ vim.cmd([[let &t_Cs = "\e[4:3m"]]) -- Enable undercurl for terminals that suppor
 vim.cmd([[let &t_Ce = "\e[4:0m"]]) -- Disable undercurl for terminals that support it
 opt.formatoptions:append({ "r" }) -- Continue comments with asterisks
 opt.smoothscroll = true -- smooth scrolling
+-- 0 padding for kitty terminal when nvim opens and reset on nvim closes
+vim.cmd([[
+augroup kitty_mp
+    autocmd!
+    au VimLeave * :silent !kitty @ set-spacing padding=25 margin=0
+    au VimEnter * :silent !kitty @ set-spacing padding=0 margin=0
+augroup END
+]])

@@ -1,7 +1,7 @@
 {
-    "diagnostics.globals": [
-        "config_lualine",
-        "colors",
-        "local"
+    "diagnostics.disable": [
+        "incomplete-signature-doc",
+        "trailing-space",
+        "missing-fields"
     ]
 }
