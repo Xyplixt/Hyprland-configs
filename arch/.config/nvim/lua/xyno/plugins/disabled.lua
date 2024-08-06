@@ -5,4 +5,5 @@ return {
   { "nvim-tree.lua", enabled = false },
   { "Exafunction/codeium.nvim", enabled = false },
   { "supermaven-inc/supermaven-nvim", enabled = false },
+  { "b0o/incline.nvim", enabled = false },
 }

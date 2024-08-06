@@ -1,5 +1,6 @@
 return {
   "williamboman/mason.nvim",
+  -- event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "williamboman/mason-lspconfig.nvim", -- installation of lsps and configuring them
     "WhoIsSethDaniel/mason-tool-installer.nvim", -- installation of formatter and linters

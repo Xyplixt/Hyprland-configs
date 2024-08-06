@@ -1,6 +1,7 @@
 vim.cmd("let g:netrw_liststyle = 3") -- Make nvim default file explorer as tree
 local opt = vim.opt -- For concise commands
 local prefix = vim.env.XDG_CONFIG_HOME or vim.fn.expand("~/.config")
+opt.laststatus = 3 -- show only one status bar instead of every split
 opt.undodir = { prefix .. "/nvim/.undo//" } -- Defining folder for undo so that undotree works properly
 opt.incsearch = true -- matches search pattern
 opt.relativenumber = true -- Turn on relativenumber
@@ -23,7 +24,7 @@ opt.hlsearch = true -- Highlight search results
 opt.backup = false -- Disable backup files
 opt.showcmd = true -- Show command in the last line of the screen
 opt.cmdheight = 1 -- Set command line height to 1
-opt.laststatus = 2 -- Always show the status line
+-- opt.laststatus = 2 -- Always show the status line
 opt.expandtab = true -- Convert tabs to spaces
 opt.scrolloff = 10 -- Keep 10 lines visible above and below the cursor
 opt.backupskip = { "/tmp/*", "/private/tmp/*" } -- Don't create backup files for these paths
@@ -52,10 +53,10 @@ vim.cmd([[let &t_Ce = "\e[4:0m"]]) -- Disable undercurl for terminals that suppo
 opt.formatoptions:append({ "r" }) -- Continue comments with asterisks
 opt.smoothscroll = true -- smooth scrolling
 -- 0 padding for kitty terminal when nvim opens and reset on nvim closes
-vim.cmd([[
-augroup kitty_mp
-    autocmd!
-    au VimLeave * :silent !kitty @ set-spacing padding=25 margin=0
-    au VimEnter * :silent !kitty @ set-spacing padding=0 margin=0
-augroup END
-]])
+-- vim.cmd([[
+-- augroup kitty_mp
+--     autocmd!
+--     au VimLeave * :silent !kitty @ set-spacing padding=25 margin=0
+--     au VimEnter * :silent !kitty @ set-spacing padding=0 margin=0
+-- augroup END
+-- ]])

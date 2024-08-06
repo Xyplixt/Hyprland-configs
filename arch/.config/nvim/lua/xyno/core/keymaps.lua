@@ -39,8 +39,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 keymap.set("n", "<C-a>", "gg<S-v>G") -- Select all
 keymap.set("n", "E", "$") -- Go to end of line
 keymap.set("n", "B", "^") -- Go to beginning of line
-keymap.set("n", "<Leader>o", "o<Esc>^Da", { desc = "Line without continuing" }) -- create a new line below without continuing comments or indentation
-keymap.set("n", "<Leader>O", "O<Esc>^Da", { desc = "Line without continuing" }) -- create a new line above without continuing comments or indentation
+-- keymap.set("n", "<Leader>o", "o<Esc>^Da", { desc = "Line without continuing" }) -- create a new line below without continuing comments or indentation
+-- keymap.set("n", "<Leader>O", "O<Esc>^Da", { desc = "Line without continuing" }) -- create a new line above without continuing comments or indentation
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")
@@ -93,3 +93,18 @@ keymap.set("n", "<leader>bcode", ":normal! i[tex]\\underline{ \\underline{\\bold
 keymap.set("n", "<leader>bfrac", ":normal! i[tex] \\sf \\dfrac { n }{ d } [/tex]<CR>", opts)
 keymap.set("n", "<leader>bsq", ":normal! i\\sqrt{} <CR>", opts)
 keymap.set("n", "<leader>bgap", ":normal! i                     ㅤ<CR>", opts)
+
+-- Obsidian
+keymap.set(
+  "n",
+  "<leader>oc",
+  "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
+  { desc = "Obsidian Check Checkbox" }
+)
+keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
+keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
+keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
+keymap.set("n", "<leader>ol", "<cmd>ObsidianLinks<CR>", { desc = "Show ObsidianLinks" })
+keymap.set("n", "<leader>on", "<cmd>ObsidianNew<CR>", { desc = "Create New Note" })
+keymap.set("n", "<leader>os", "<cmd>ObsidianSearch<CR>", { desc = "Search Obsidian" })
+keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quick Switch" })

@@ -5,7 +5,7 @@
 -- local M = {}
 --
 -- M.base46 = {
--- 	theme = "solarized_osaka",
+-- 	theme = "rosepine",
 --
 -- 	-- hl_override = {
 -- 	-- 	Comment = { italic = true },
@@ -20,8 +20,8 @@
 local M = {}
 
 M.ui = {
-  theme = "solarized_osaka",
-  transparency = true,
+  theme = "rosepine",
+  transparency = false,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
