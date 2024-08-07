@@ -5,7 +5,7 @@
 -- local M = {}
 --
 -- M.base46 = {
--- 	theme = "rosepine",
+-- 	theme = "solarized_osaka",
 --
 -- 	-- hl_override = {
 -- 	-- 	Comment = { italic = true },
@@ -20,14 +20,22 @@
 local M = {}
 
 M.ui = {
-  theme = "rosepine",
-  transparency = false,
+  theme = "solarized_osaka",
+  transparency = true,
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
     -- round and block will work for minimal theme only
     separator_style = "block",
-    order = { "mode", "file", "git", "%=", "lsp", "%=", "diagnostics", "cwd" },
+    order = {
+      "mode", --[[ "file", ]]
+      "git",
+      "%=",
+      "lsp",
+      "%=",
+      "diagnostics",
+      "cwd",
+    },
     modules = {},
   },
   -- lazyload it when there are 1+ buffers
