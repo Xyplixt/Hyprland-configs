@@ -10,4 +10,9 @@ return {
 
     "nvim-tree/nvim-web-devicons",
   },
+  config = function()
+    require("markview").setup({
+      hybrid_modes = { "n" },
+    })
+  end,
 }

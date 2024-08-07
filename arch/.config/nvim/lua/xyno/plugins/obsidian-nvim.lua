@@ -10,8 +10,8 @@ return {
     require("obsidian").setup({
       workspaces = {
         {
-          name = "ObsidianVault",
-          path = "~/Obsidian",
+          name = "Obsidian",
+          path = "~/syncthing/Obsidian",
         },
       },
       completion = {
@@ -51,7 +51,7 @@ return {
       },
 
       ui = {
-        enable = true,
+        enable = false,
       },
     })
   end,
