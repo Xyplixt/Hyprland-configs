@@ -1,5 +1,5 @@
 return {
-  "hrsh7th/nvim-cmp",
+  "hrsh7th/nvim-cmp", -- connect with lsp to provide autocompletion
   -- event = { "BufReadPre", "BufNewFile" },
   event = "InsertEnter",
   dependencies = {

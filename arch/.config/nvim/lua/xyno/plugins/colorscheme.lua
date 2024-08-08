@@ -1,12 +1,13 @@
-return{
+return {
   {
     "ellisonleao/gruvbox.nvim",
     lazy = false,
-    priority = 1000,
+    priority = 1000, -- default is 50
     opts = require("xyno.theme").config,
     config = function(_, opts)
       require("gruvbox").setup(opts)
       vim.opt.background = "dark"
       vim.cmd.colorscheme("gruvbox")
     end,
-  },}
+  },
+}

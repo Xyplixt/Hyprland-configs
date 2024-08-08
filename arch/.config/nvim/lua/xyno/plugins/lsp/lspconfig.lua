@@ -119,6 +119,8 @@ return {
         -- configure lua server (with special settings)
         lspconfig["lua_ls"].setup({
           capabilities = capabilities,
+          single_file_support = true,
+          -- root_dir = lspconfig.util.root_pattern(), -- NOTE: Use this if don't want slow loading or workspace
           settings = {
             Lua = {
               -- make the language server recognize "vim" global
@@ -140,6 +142,13 @@ return {
       end,
       ["eslint"] = function()
         lspconfig["eslint"].setup({
+          capabilities = capabilities,
+          single_file_support = true,
+          filetypes = { "javascript" },
+        })
+      end,
+      ["tsserver"] = function()
+        lspconfig["tsserver"].setup({
           capabilities = capabilities,
           single_file_support = true,
           filetypes = { "javascript" },

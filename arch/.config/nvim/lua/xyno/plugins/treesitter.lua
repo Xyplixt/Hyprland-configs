@@ -44,12 +44,13 @@ return {
         "c",
         "python",
       },
+      auto_install = true,
       incremental_selection = {
         enable = true,
         keymaps = {
           init_selection = "<C-space>", -- TODO: Use this , basically selects the block and continues selecting on pressing
           node_incremental = "<C-space>",
-          scope_incremental = false,
+          scope_incremental = "<C-s>",
           node_decremental = "<bs>",
         },
       },
