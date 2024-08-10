@@ -19,9 +19,15 @@
 ---@type ChadrcConfig
 local M = {}
 
+--------------------------------------------------- Function to check if Neovide is running
+local function is_neovide()
+  return vim.g.neovide ~= nil
+end
+-------------------------------------------------------------------------------------------
 M.ui = {
   theme = "solarized_osaka",
-  transparency = true,
+  -- transparency = true,
+  transparency = not is_neovide(), ----- for neovide
   statusline = {
     theme = "minimal", -- default/vscode/vscode_colored/minimal
     -- default/round/block/arrow separators work only for default statusline theme
@@ -31,8 +37,8 @@ M.ui = {
       "mode", --[[ "file", ]]
       "git",
       "%=",
-      "lsp",
       "%=",
+      "lsp",
       "diagnostics",
       "cwd",
     },
@@ -90,4 +96,13 @@ M.ui = {
 }
 
 M.lsp = { signature = false }
+
+------------------------------------------------------- Neovide-specific settings
+if is_neovide() then
+  vim.g.neovide_transparency = 1.0 -- Fully opaque for Neovide
+else
+  -- You can add any Neovim-specific transparency settings here if needed
+end
+----------------------------------------------------------------------------------
+
 return M

@@ -51,11 +51,11 @@ return {
       -- extension = "avif", ---@type string
       -- process_cmd = "convert - -quality 75 avif:-", ---@type string
 
-      extension = "webp", ---@type string
-      process_cmd = "convert - -quality 75 webp:-", ---@type string
+      -- extension = "webp", ---@type string
+      -- process_cmd = "convert - -quality 75 webp:-", ---@type string
 
-      -- extension = "png", ---@type string
-      -- process_cmd = "convert - -quality 75 png:-", ---@type string
+      extension = "png", ---@type string
+      process_cmd = "convert - -quality 100 png:-", ---@type string
 
       -- extension = "jpg", ---@type string
       -- process_cmd = "convert - -quality 75 jpg:-", ---@type string
