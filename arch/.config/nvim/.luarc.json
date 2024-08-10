@@ -1,7 +1,0 @@
-{
-    "diagnostics.globals": [
-        "config_lualine",
-        "colors",
-        "local"
-    ]
-}
